@@ -1,7 +1,7 @@
 # Helm Push
-![Build](https://github.com/bsord/helm-push/workflows/Build/badge.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/bsord/helm-push.svg)
-![License](https://img.shields.io/github/license/bsord/helm-push.svg?style=flat)
+![Build](https://github.com/dnio99/helm-push/workflows/Build/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/dnio99/helm-push.svg)
+![License](https://img.shields.io/github/license/dnio99/helm-push.svg?style=flat)
 
 Push a chart to a ChartMuseum or OCI compatible registry with Helm v3
 
@@ -10,11 +10,11 @@ Using Token Auth with OCI Registry:
 ```yaml
 steps:
   - name: Push Helm chart to OCI compatible registry (Github)
-    uses: bsord/helm-push@4.2.0
+    uses: dnio99/helm-push@0.0.1
     with:
       useOCIRegistry: true
       registry-url:  oci://ghcr.io/${{ github.repository }}
-      username: bsord
+      username: dnio99
       access-token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
       force: true
       chart-folder: chart
@@ -30,7 +30,7 @@ steps:
       command: aws ecr get-login-password
 
   - name: Push Helm chart to Amazon Elastic Container Registry (ECR)
-    uses: bsord/helm-push@4.2.0
+    uses: dnio99/helm-push@0.0.1
     with:
       useOCIRegistry: true
       registry-url: oci://123456789123.dkr.ecr.eu-west-1.amazonaws.com
@@ -43,7 +43,7 @@ Using Password Auth:
 ```yaml
 steps:
   - name: Push Helm Chart to ChartMuseum
-    uses: bsord/helm-push@4.2.0
+    uses: dnio99/helm-push@0.0.1
     with:
       username: ${{ secrets.HELM_USERNAME }}
       password: ${{ secrets.HELM_PASSWORD }}
@@ -56,7 +56,7 @@ Using Token Auth:
 ```yaml
 steps:
   - name: Push Helm Chart to ChartMuseum
-    uses: bsord/helm-push@4.2.0
+    uses: dnio99/helm-push@0.0.1
     with:
       access-token: ${{ secrets.HELM_API_KEY }}
       registry-url: 'https://h.cfcr.io/user_or_org/reponame'
